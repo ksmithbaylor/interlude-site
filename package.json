@@ -1,0 +1,15 @@
+{
+  "name": "interlude-trio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kevin Smith",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-pug": "^3.3.0",
+    "lodash": "^4.17.4",
+    "pug": "^2.0.0-rc.4"
+  }
+}
