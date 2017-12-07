@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Kevin Smith",
   "license": "MIT",
+  "scripts": {
+    "start": "gulp"
+  },
   "dependencies": {
     "browser-sync": "^2.18.13",
     "del": "^3.0.0",

@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 const pug = require('gulp-pug');
-const browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync').create({
+  open: false,
+});
 const del = require('del');
 const _ = require('lodash');
 
@@ -22,7 +24,11 @@ gulp.task('images', () => {
   return gulp.src('images/**/*').pipe(gulp.dest('public'));
 });
 
-gulp.task('all', ['html', 'images']);
+gulp.task('styles', () => {
+  return gulp.src('styles/**/*').pipe(gulp.dest('public'));
+});
+
+gulp.task('all', ['html', 'images', 'styles']);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Helpers
@@ -56,3 +62,4 @@ gulp.task('browser-sync', ['clean', 'all'], done => {
 gulp.task('default', ['clean', 'all', 'browser-sync']);
 gulp.watch('html/**/*', ['html']);
 gulp.watch('images/**/*', ['images']);
+gulp.watch('styles/**/*', ['styles']);

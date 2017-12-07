@@ -1,7 +1,21 @@
+include ../mixins/window-title
+
+- var title = "Title"
+
 doctype html
 html
   head
     block title
-      title Interlude Trio
+      +window-title(title)
+    link(rel="stylesheet" href="main.css")
   body
-    block body
+    header
+      block header
+        include header
+    main
+      div.page-title
+        block page-title
+          h1= title
+      div.page-content
+        block page-content
+          p hello world

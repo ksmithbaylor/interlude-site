@@ -1,8 +1,13 @@
-extends ./partials/layout
+extends partials/layout
 
 block title
-  title Home | Interlude Trio
+  +window-title("Home")
 
-block body
-  h1 Hello worlddd
-  p world!
+block page-title
+  h1 Home
+
+block page-content
+  p
+    | This is some content
+    | and some more
+    | and even more!

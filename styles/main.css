@@ -1,0 +1,52 @@
+body {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-color: black;
+
+  --page-width: 960px;
+}
+
+header {
+  height: 50vw;
+  min-height: 300px;
+  max-height: calc(var(--page-width) / 2);
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav {
+  width: 100%;
+  font-size: 20px;
+  /* font-family: 'Raleway'; */
+  margin-bottom: 0.5rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0 auto;
+  max-width: var(--page-width);
+}
+
+nav li {
+  display: block;
+}
+
+nav a {
+  border-bottom: 1px solid #bbb;
+  text-decoration: none;
+  color: #ccc;
+}
+
+main {
+  padding: 1rem;
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
