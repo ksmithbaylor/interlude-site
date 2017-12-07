@@ -1,8 +1,7 @@
 const gulp = require('gulp');
+const gutil = require('gulp-util');
 const pug = require('gulp-pug');
-const browserSync = require('browser-sync').create({
-  open: false,
-});
+const browserSync = require('browser-sync').create();
 const del = require('del');
 const _ = require('lodash');
 
@@ -10,11 +9,16 @@ const _ = require('lodash');
 // Build tasks
 
 gulp.task('html', () => {
+  const p = pug({
+    verbose: true,
+  });
+
   return gulp
     .src('html/*.pug')
     .pipe(
-      pug({
-        verbose: true,
+      p.on('error', err => {
+        gutil.log(err.stack);
+        p.end();
       }),
     )
     .pipe(gulp.dest('public'));
@@ -44,6 +48,7 @@ gulp.task('browser-sync', ['clean', 'all'], done => {
       server: {
         baseDir: './public',
       },
+      open: false,
     },
     done,
   );
