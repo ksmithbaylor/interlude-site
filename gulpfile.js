@@ -4,6 +4,9 @@ const pug = require('gulp-pug');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 const _ = require('lodash');
+const postcss = require('gulp-postcss');
+const cssnext = require('postcss-cssnext');
+const cssnano = require('cssnano');
 
 ////////////////////////////////////////////////////////////////////////////////
 // Build tasks
@@ -29,7 +32,17 @@ gulp.task('images', () => {
 });
 
 gulp.task('styles', () => {
-  return gulp.src('styles/**/*').pipe(gulp.dest('public'));
+  const p = postcss([cssnext(), cssnano()]);
+
+  return gulp
+    .src('styles/*.css')
+    .pipe(
+      p.on('error', err => {
+        gutil.log(err.stack);
+        p.end();
+      }),
+    )
+    .pipe(gulp.dest('public'));
 });
 
 gulp.task('all', ['html', 'images', 'styles']);
