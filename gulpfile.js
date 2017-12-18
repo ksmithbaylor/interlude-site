@@ -32,7 +32,16 @@ gulp.task('images', () => {
 });
 
 gulp.task('styles', () => {
-  const p = postcss([cssnext(), cssnano()]);
+  const p = postcss([
+    cssnext({
+      features: {
+        autoprefixer: {
+          grid: true,
+        },
+      },
+    }),
+    cssnano(),
+  ]);
 
   return gulp
     .src('styles/*.css')
