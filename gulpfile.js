@@ -46,7 +46,7 @@ gulp.task('styles', () => {
   ]);
 
   return gulp
-    .src('styles/*.css')
+    .src('styles/index.css')
     .pipe(
       p.on('error', err => {
         gutil.log(err.stack);
