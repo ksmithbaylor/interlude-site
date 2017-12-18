@@ -1,0 +1,21 @@
+.bio {
+  display: flex;
+
+  @media (--sm) {
+    flex-direction: column;
+  }
+
+  @media (--md) {
+    flex-direction: row;
+  }
+
+  @media (--xl) {
+    flex-direction: row;
+  }
+
+  & .bio-picture {
+    width: 100%;
+    height: 200px;
+    background-color: #777;
+  }
+}

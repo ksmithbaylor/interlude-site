@@ -7,6 +7,7 @@ const _ = require('lodash');
 const postcss = require('gulp-postcss');
 const cssnext = require('postcss-cssnext');
 const cssnano = require('cssnano');
+const easyImport = require('postcss-easy-import');
 
 ////////////////////////////////////////////////////////////////////////////////
 // Build tasks
@@ -33,6 +34,7 @@ gulp.task('images', () => {
 
 gulp.task('styles', () => {
   const p = postcss([
+    easyImport,
     cssnext({
       features: {
         autoprefixer: {

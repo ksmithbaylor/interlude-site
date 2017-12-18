@@ -1,0 +1,8 @@
+@import 'normalize.css';
+@import './custom-media.css';
+@import './vars.css';
+
+body {
+  color: white;
+  background-color: black;
+}
