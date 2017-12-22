@@ -29,7 +29,7 @@ gulp.task('html', () => {
 });
 
 gulp.task('images', () => {
-  return gulp.src('images/**/*').pipe(gulp.dest('public'));
+  return gulp.src('images/in-use/**/*').pipe(gulp.dest('public'));
 });
 
 gulp.task('styles', () => {
@@ -88,7 +88,8 @@ gulp.task('browser-sync', ['clean', 'all'], done => {
 ////////////////////////////////////////////////////////////////////////////////
 // Kick it off
 
-gulp.task('default', ['clean', 'all', 'browser-sync']);
-gulp.watch('html/**/*', ['html']);
-gulp.watch('images/**/*', ['images']);
-gulp.watch('styles/**/*', ['styles']);
+gulp.task('default', ['clean', 'all', 'browser-sync'], () => {
+  gulp.watch('html/**/*', ['html']);
+  gulp.watch('images/**/*', ['images']);
+  gulp.watch('styles/**/*', ['styles']);
+});
