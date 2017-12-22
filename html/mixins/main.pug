@@ -1,0 +1,17 @@
+mixin main(title, klass)
+  doctype html
+  html
+    head
+      meta(name="viewport" content="width=device-width, initial-scale=1")
+      title
+        = text
+        = " | Interlude Trio"
+      link(rel="stylesheet" href="index.css")
+    body(class=klass)
+      include ../partials/header
+      main
+        div.page-content
+          if block
+            block
+          else
+            p No content provided

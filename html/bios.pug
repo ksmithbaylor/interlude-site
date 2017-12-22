@@ -1,12 +1,6 @@
-extends partials/layout
+include mixins/main
 
-block title
-  +window-title("Bios")
-
-block page-title
-  h1 Bios
-
-block page-content
++main("Bios", "bios")
   div.bio
     div.bio-picture
     h2.bio-name Katie Smith
