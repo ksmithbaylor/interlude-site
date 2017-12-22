@@ -84,6 +84,6 @@ body.contact nav li.contact a {
   height: inherit;
   min-height: inherit;
   max-height: inherit;
-  background-image: linear-gradient(0deg, #000, rgba(255,255,255,0) 40%);
+  background-image: linear-gradient(0deg, #000, rgba(255,255,255,0) 50%);
   z-index: 3;
 }
