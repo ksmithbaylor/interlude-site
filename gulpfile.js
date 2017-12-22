@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const pug = require('gulp-pug');
+const run = require('gulp-run');
+const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 const _ = require('lodash');
@@ -56,7 +58,14 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('all', ['html', 'images', 'styles']);
+gulp.task('logo', () => {
+  return run('node scripts/generateLogo.js', {silent: true})
+    .exec()
+    .pipe(rename('logo.svg'))
+    .pipe(gulp.dest('public'));
+});
+
+gulp.task('all', ['logo', 'html', 'images', 'styles']);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Helpers
@@ -89,6 +98,7 @@ gulp.task('browser-sync', ['clean', 'all'], done => {
 // Kick it off
 
 gulp.task('default', ['clean', 'all', 'browser-sync'], () => {
+  gulp.watch('scripts/generateLogo.js', ['logo']);
   gulp.watch('html/**/*', ['html']);
   gulp.watch('images/**/*', ['images']);
   gulp.watch('styles/**/*', ['styles']);

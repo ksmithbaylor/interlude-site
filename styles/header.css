@@ -11,6 +11,11 @@ header {
   position: relative;
 }
 
+#logo {
+  z-index: 2;
+  width: 400px;
+}
+
 nav {
   width: inherit;
   font-size: 20px;
