@@ -28,22 +28,17 @@ header {
     }
 
     & a {
-      border-bottom: 1px solid #bbb;
       text-decoration: none;
-      color: #ccc;
+      color: #999;
     }
   }
 }
 
-body.about li.about,
-body.bios li.bios,
-body.listen li.listen,
-body.contact li.contact {
+body.about nav li.about a,
+body.bios nav li.bios a,
+body.listen nav li.listen a,
+body.contact nav li.contact a {
   color: white;
   font-weight: bold;
-  background-color: #999;
-
-  & a {
-    border-bottom: 3px solid #bbb;
-  }
+  border-bottom: 2px solid #bbb;
 }
