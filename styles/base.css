@@ -2,7 +2,14 @@
 @import './custom-media.css';
 @import './vars.css';
 
-body {
-  color: white;
-  background-color: black;
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+main {
+  padding: 2rem;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  font-size: 1.2em;
+  font-family: 'Merriweather';
+  line-height: 150%;
 }
