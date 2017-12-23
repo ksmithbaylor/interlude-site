@@ -1,7 +1,7 @@
 header {
   height: 30vw;
-  min-height: 350px;
-  max-height: calc(var(--page-width) / 2);
+  min-height: 300px;
+  max-height: calc(var(--page-width) / 1.75);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -73,25 +73,28 @@ body.contact nav li.contact a {
   z-index: 1;
 
   & img {
-    /* position: absolute; */
-    margin-top: calc(-1 * 20vw);
-    max-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    /* bottom: calc(-1 * 10vw); */
-    /* left: 0; */
-    /* right: 0; */
     z-index: 2;
+    margin-top: calc(-0.2 * 600px);
+    min-width: 600px;
+    width: 600px;
+    height: auto;
+    min-height: 100%;
+
+    @media (width >= 600px) {
+      margin-top: calc(-0.2 * 100vw);
+      width: unset;
+      max-width: 100%;
+      min-height: 100%;
+    }
   }
 }
 
 .header-image__overlay {
-  position: fixed;
+  position: absolute;
   width: inherit;
   height: inherit;
   min-height: inherit;
   max-height: inherit;
-  background-image: linear-gradient(0deg, #000, rgba(255,255,255,0) 50%);
+  background-image: linear-gradient(0deg, #000, color(#000000 alpha(0.1%)) 50%);
   z-index: 3;
 }
