@@ -98,7 +98,7 @@ const accentColor = 'white';
 
 // Close up on treble: viewBox="100 75 70 20" width="600" height="700"
 const svgHTML = `
-  <svg viewBox="98 45 283 76" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="98 45 283 76" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
       <style>
         @import url('https://fonts.googleapis.com/css?family=Rouge+Script');
