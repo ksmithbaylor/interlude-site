@@ -55,8 +55,7 @@ body.bios nav li.bios a,
 body.listen nav li.listen a,
 body.contact nav li.contact a {
   color: white;
-  font-weight: bold;
-  border-bottom: 2px solid #bbb;
+  border-bottom: 1px solid #bbb;
 }
 
 .header-image {
