@@ -5,7 +5,8 @@
   "author": "Kevin Smith",
   "license": "MIT",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "build": "gulp all"
   },
   "dependencies": {
     "browser-sync": "^2.18.13",
