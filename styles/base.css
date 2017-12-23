@@ -5,8 +5,12 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 
+body, html {
+  overflow-x: hidden;
+}
+
 main {
-  padding: 2rem;
+  padding: 1rem;
   max-width: var(--page-width);
   margin: 0 auto;
   font-size: 1.2em;
