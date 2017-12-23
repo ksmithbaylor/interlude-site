@@ -1,21 +1,29 @@
 .bio {
-  display: flex;
+  margin-top: 2em;
+}
 
-  @media (--sm) {
-    flex-direction: column;
-  }
+.bio::after {
+  content: '';
+  display: block;
+  clear: both;
+}
 
-  @media (--md) {
-    flex-direction: row;
-  }
+.bio-picture {
+  width: calc(var(--page-width) * 0.4);
+  height: auto;
+  margin-bottom: 0.5em;
+}
 
-  @media (--xl) {
-    flex-direction: row;
-  }
-
+.bio:nth-of-type(odd) {
   & .bio-picture {
-    width: 100%;
-    height: 200px;
-    background-color: #777;
+    float: left;
+    margin-right: 2em;
+  }
+}
+
+.bio:nth-of-type(even) {
+  & .bio-picture {
+    float: right;
+    margin-left: 2em;
   }
 }
