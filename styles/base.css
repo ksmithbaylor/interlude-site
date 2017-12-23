@@ -7,13 +7,24 @@
 
 body, html {
   overflow-x: hidden;
+  background-color: var(--bg-color);
 }
 
 main {
+  background-color: inherit;
+  /* background-image: linear-gradient(180deg, #000, #aaa 1em, #ddd 1.5em, #eee 2em, #fff); */
+}
+
+.page-content {
+  background-color: inherit;
+  background-image: inherit;
+  font-smoothing: antialiased;
+  color: #dddddd;
   padding: 1rem;
   max-width: var(--page-width);
   margin: 0 auto;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-family: 'Merriweather';
-  line-height: 150%;
+  font-weight: 300;
+  line-height: 160%;
 }
