@@ -25,7 +25,7 @@ gulp.task('html', () => {
       p.on('error', err => {
         gutil.log(err.stack);
         p.end();
-      }),
+      })
     )
     .pipe(gulp.dest('public'));
 });
@@ -40,11 +40,11 @@ gulp.task('styles', () => {
     cssnext({
       features: {
         autoprefixer: {
-          grid: true,
-        },
-      },
+          grid: true
+        }
+      }
     }),
-    cssnano(),
+    cssnano()
   ]);
 
   return gulp
@@ -53,7 +53,7 @@ gulp.task('styles', () => {
       p.on('error', err => {
         gutil.log(err.stack);
         p.end();
-      }),
+      })
     )
     .pipe(gulp.dest('public'));
 });
@@ -81,16 +81,16 @@ gulp.task('browser-sync', ['clean', 'all'], done => {
       server: {
         baseDir: './public',
       },
-      open: false,
+      open: false
     },
-    done,
+    done
   );
 
   gulp.watch('public/**/*').on(
     'change',
     _.throttle(browserSync.reload, 1000, {
-      trailing: false,
-    }),
+      trailing: false
+    })
   );
 });
 
