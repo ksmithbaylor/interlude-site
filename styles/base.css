@@ -12,6 +12,7 @@ body, html {
 
 main {
   background-color: inherit;
+  padding-top: 2em;
 }
 
 .page-content {
