@@ -3,16 +3,16 @@ include mixins/main
 +main("Contact", 'contact')
   form(name="contact", method="POST", action="thanks", netlify)
     p
-      label(for="name") Your name:
+      label(for="name") Name
       input#name(type="text", name="name")
 
     p
-      label(for="email") Your email:
+      label(for="email") Email
       input#email(type="text", name="email")
 
     p
-      label(for="message") Message:
-      textarea#message(type="text", name="message")
+      label(for="message") Message
+      textarea#message(type="text", name="message", rows=8)
 
     p
       button(type="submit") Send
