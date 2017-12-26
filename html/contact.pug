@@ -4,15 +4,15 @@ include mixins/main
   form(name="contact", method="POST", action="thanks", netlify)
     p
       label(for="name") Name
-      input#name(type="text", name="name")
+      input#name(type="text", name="name", required)
 
     p
       label(for="email") Email
-      input#email(type="text", name="email")
+      input#email(type="email", name="email", required)
 
     p
       label(for="message") Message
-      textarea#message(type="text", name="message", rows=8)
+      textarea#message(type="text", name="message", rows=8, required)
 
     p
       button(type="submit") Send
