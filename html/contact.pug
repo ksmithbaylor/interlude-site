@@ -1,10 +1,14 @@
 include mixins/main
 
 +main("Contact", 'contact')
-  form(name="contact", method="POST", action="thanks", netlify)
+  form(name="contact", method="POST", action="thanks", netlify, netlify-honeypot="fake")
     p
       label(for="name") Name
       input#name(type="text", name="name", required)
+
+    p(style="display:none;")
+      label(for="fake") Fake
+      input#fake(type="text", name="fake")
 
     p
       label(for="email") Email
