@@ -9,11 +9,25 @@ textarea {
   border: 1px solid silver;
   border-radius: 3px;
   padding: 5px;
-  width: 25%;
+  width: calc(100% - 0.5em);
+
+  @media (--md) {
+    & {
+      width: 50%;
+    }
+  }
+
+  @media (--lg) {
+    & {
+      width: 25%;
+    }
+  }
 }
 
-textarea {
-  width: 50%;
+@media (--lg) {
+  textarea {
+    width: 50%;
+  }
 }
 
 button[type="submit"] {
