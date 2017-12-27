@@ -3,8 +3,8 @@ label {
   font-weight: bold;
 }
 
-input[type="text"],
-input[type="email"],
+input[type='text'],
+input[type='email'],
 textarea {
   border: 1px solid silver;
   border-radius: 3px;
@@ -30,12 +30,12 @@ textarea {
   }
 }
 
-button[type="submit"] {
+button[type='submit'] {
   border: 1px solid silver;
   border-radius: 5px;
   background-color: white;
   color: black;
-  font-family: "Raleway";
+  font-family: 'Raleway';
   font-weight: bold;
   padding: 5px;
   width: 4em;

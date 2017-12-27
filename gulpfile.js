@@ -16,7 +16,7 @@ const easyImport = require('postcss-easy-import');
 
 gulp.task('html', () => {
   const p = pug({
-    verbose: true,
+    verbose: true
   });
 
   return gulp
@@ -64,7 +64,7 @@ gulp.task('styles', () => {
 });
 
 gulp.task('logo', () => {
-  return run('node scripts/generateLogo.js', {silent: true})
+  return run('node scripts/generateLogo.js', { silent: true })
     .exec()
     .pipe(rename('logo.svg'))
     .pipe(gulp.dest('public'));
@@ -84,7 +84,7 @@ gulp.task('browser-sync', ['clean', 'all'], done => {
   browserSync.init(
     {
       server: {
-        baseDir: './public',
+        baseDir: './public'
       },
       open: false
     },

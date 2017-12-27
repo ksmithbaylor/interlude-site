@@ -1,13 +1,10 @@
-(function (window) {
-  var links = ;
-  document.querySelectorAll('nav li a').forEach(function (link) {
-    link.addEventListener('click', function (event) {
+(function(window) {
+  document.querySelectorAll('nav li a').forEach(function(link) {
+    link.addEventListener('click', function(event) {
       // event.preventDefault();
       onClickNav(this.parentNode.classList[0]);
     });
   });
 
-  function onClickNav(target) {
-
-  }
+  function onClickNav(target) {}
 })(window);
