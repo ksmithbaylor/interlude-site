@@ -34,6 +34,11 @@ gulp.task('images', () => {
   return gulp.src('images/in-use/**/*').pipe(gulp.dest('public'));
 });
 
+gulp.task('favicon', () => {
+  // Unzip folder generated from https://www.favicon-generator.org/
+  return gulp.src('favicon/**/*').pipe(gulp.dest('public'));
+});
+
 gulp.task('styles', () => {
   const p = postcss([
     easyImport,
@@ -65,7 +70,7 @@ gulp.task('logo', () => {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('all', ['logo', 'html', 'images', 'styles']);
+gulp.task('all', ['logo', 'html', 'images', 'favicon', 'styles']);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Helpers
@@ -101,5 +106,6 @@ gulp.task('default', ['clean', 'all', 'browser-sync'], () => {
   gulp.watch('scripts/generateLogo.js', ['logo']);
   gulp.watch('html/**/*', ['html']);
   gulp.watch('images/**/*', ['images']);
+  gulp.watch('favicon/**/*', ['favicon']);
   gulp.watch('styles/**/*', ['styles']);
 });
