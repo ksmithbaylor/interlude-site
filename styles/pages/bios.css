@@ -14,6 +14,13 @@
   margin-bottom: 2em;
 }
 
+hr {
+  height: 1px;
+  color: silver;
+  background-color: silver;
+  border: none;
+}
+
 @media (--md) {
   .bio {
     display: block;
@@ -23,10 +30,6 @@
     content: '';
     display: block;
     clear: both;
-  }
-
-  hr {
-    display: none;
   }
 
   .bio-picture {
