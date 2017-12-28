@@ -18,16 +18,32 @@ const easyImport = require('postcss-easy-import');
 // Build tasks
 
 gulp.task('html', () => {
-  const p = pug({
-    verbose: true
-  });
-
   return gulp
     .src('html/*.pug')
     .pipe(
-      p.on('error', err => {
-        gutil.log(err.stack);
-        p.end();
+      catchErrors(
+        pug({
+          verbose: true
+        })
+      )
+    )
+    .pipe(gulp.dest('public'));
+});
+
+gulp.task('html-justmain', () => {
+  return gulp
+    .src('html/*.pug')
+    .pipe(
+      catchErrors(
+        pug({
+          verbose: true,
+          locals: { justMain: true }
+        })
+      )
+    )
+    .pipe(
+      rename(path => {
+        path.basename += '-main';
       })
     )
     .pipe(gulp.dest('public'));
@@ -90,7 +106,15 @@ gulp.task('logo', () => {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('all', ['logo', 'html', 'images', 'favicon', 'css', 'js']);
+gulp.task('all', [
+  'logo',
+  'html',
+  'html-justmain',
+  'images',
+  'favicon',
+  'css',
+  'js'
+]);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Helpers
@@ -131,7 +155,7 @@ function catchErrors(stream) {
 
 gulp.task('default', ['clean', 'all', 'browser-sync'], () => {
   gulp.watch('scripts/generateLogo.js', ['logo']);
-  gulp.watch('html/**/*', ['html']);
+  gulp.watch('html/**/*', ['html', 'html-justmain']);
   gulp.watch('images/**/*', ['images']);
   gulp.watch('favicon/**/*', ['favicon']);
   gulp.watch('css/**/*', ['css']);
