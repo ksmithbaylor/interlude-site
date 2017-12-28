@@ -2,9 +2,6 @@
 @import './custom-media.css';
 @import './vars.css';
 
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
-
 body,
 html {
   overflow-x: hidden;
