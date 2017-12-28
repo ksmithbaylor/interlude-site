@@ -1,4 +1,4 @@
-import './nanoajax.min.js';
+import { ajax } from 'nanoajax';
 
 console.log('js loaded');
 

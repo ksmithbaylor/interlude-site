@@ -4,6 +4,8 @@ const pug = require('gulp-pug');
 const run = require('gulp-run');
 const rollup = require('rollup-stream');
 const buble = require('rollup-plugin-buble');
+const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
 const rename = require('gulp-rename');
 const source = require('vinyl-source-stream');
 const browserSync = require('browser-sync').create();
@@ -82,8 +84,12 @@ gulp.task('css', () => {
 gulp.task('js', () => {
   return rollup({
     input: './js/index.js',
-    format: 'es',
+    format: 'iife',
     plugins: [
+      resolve(),
+      commonjs({
+        sourceMap: false
+      }),
       buble({
         transforms: {
           dangerousForOf: true
