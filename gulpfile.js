@@ -39,7 +39,7 @@ gulp.task('favicon', () => {
   return gulp.src('favicon/**/*').pipe(gulp.dest('public'));
 });
 
-gulp.task('styles', () => {
+gulp.task('css', () => {
   const p = postcss([
     easyImport,
     cssnext({
@@ -53,7 +53,7 @@ gulp.task('styles', () => {
   ]);
 
   return gulp
-    .src('styles/index.css')
+    .src('css/index.css')
     .pipe(
       p.on('error', err => {
         gutil.log(err.stack);
@@ -70,7 +70,7 @@ gulp.task('logo', () => {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('all', ['logo', 'html', 'images', 'favicon', 'styles']);
+gulp.task('all', ['logo', 'html', 'images', 'favicon', 'css']);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Helpers
@@ -107,5 +107,5 @@ gulp.task('default', ['clean', 'all', 'browser-sync'], () => {
   gulp.watch('html/**/*', ['html']);
   gulp.watch('images/**/*', ['images']);
   gulp.watch('favicon/**/*', ['favicon']);
-  gulp.watch('styles/**/*', ['styles']);
+  gulp.watch('css/**/*', ['css']);
 });
