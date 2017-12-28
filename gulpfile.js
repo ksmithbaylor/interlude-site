@@ -43,25 +43,22 @@ gulp.task('favicon', () => {
 });
 
 gulp.task('css', () => {
-  const p = postcss([
-    easyImport,
-    cssnext({
-      features: {
-        autoprefixer: {
-          grid: true
-        }
-      }
-    }),
-    cssnano()
-  ]);
-
   return gulp
     .src('css/index.css')
     .pipe(
-      p.on('error', err => {
-        gutil.log(err.stack);
-        p.end();
-      })
+      catchErrors(
+        postcss([
+          easyImport,
+          cssnext({
+            features: {
+              autoprefixer: {
+                grid: true
+              }
+            }
+          }),
+          cssnano()
+        ])
+      )
     )
     .pipe(gulp.dest('public'));
 });
@@ -121,6 +118,13 @@ gulp.task('browser-sync', ['clean', 'all'], done => {
     })
   );
 });
+
+function catchErrors(stream) {
+  return stream.on('error', err => {
+    gutil.log(err.stack);
+    stream.end();
+  });
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Kick it off
