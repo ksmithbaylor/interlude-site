@@ -6,6 +6,10 @@ for (let link of document.querySelectorAll('nav li a')) {
   link.addEventListener('click', onClick);
 }
 
+if (document.body.className !== 'bios') {
+  preload(['/katie.jpg', '/bora.jpg', '/sarah.jpg']);
+}
+
 window.addEventListener('popstate', () => {
   const newPage =
     window.location.pathname.split('.html')[0].slice(1) || 'index';
@@ -77,4 +81,11 @@ function targetNameFor(htmlName) {
 
 function targetNameFromLink(link) {
   return link.parentNode.classList[0];
+}
+
+function preload(srcs) {
+  for (let src of srcs) {
+    const img = new Image();
+    img.src = src;
+  }
 }
