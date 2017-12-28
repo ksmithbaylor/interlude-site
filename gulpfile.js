@@ -2,7 +2,10 @@ const gulp = require('gulp');
 const gutil = require('gulp-util');
 const pug = require('gulp-pug');
 const run = require('gulp-run');
+const rollup = require('rollup-stream');
+const buble = require('rollup-plugin-buble');
 const rename = require('gulp-rename');
+const source = require('vinyl-source-stream');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 const _ = require('lodash');
@@ -63,6 +66,20 @@ gulp.task('css', () => {
     .pipe(gulp.dest('public'));
 });
 
+gulp.task('js', () => {
+  return rollup({
+    input: './js/index.js',
+    format: 'es',
+    plugins: [buble()]
+  })
+    .on('error', function(e) {
+      console.error(e.stack);
+      this.emit('end');
+    })
+    .pipe(source('bundle.js'))
+    .pipe(gulp.dest('public'));
+});
+
 gulp.task('logo', () => {
   return run('node scripts/generateLogo.js', { silent: true })
     .exec()
@@ -70,7 +87,7 @@ gulp.task('logo', () => {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('all', ['logo', 'html', 'images', 'favicon', 'css']);
+gulp.task('all', ['logo', 'html', 'images', 'favicon', 'css', 'js']);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Helpers
@@ -108,4 +125,5 @@ gulp.task('default', ['clean', 'all', 'browser-sync'], () => {
   gulp.watch('images/**/*', ['images']);
   gulp.watch('favicon/**/*', ['favicon']);
   gulp.watch('css/**/*', ['css']);
+  gulp.watch('js/**/*', ['js']);
 });

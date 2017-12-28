@@ -32,6 +32,4 @@ mixin main(title, klass)
             block
           else
             p No content provided
-      script
-        include ../partials/nanoajax.min.js
-        include ../partials/main.js
+      script(src="bundle.js")

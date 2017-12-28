@@ -23,7 +23,10 @@
     "postcss": "^6.0.14",
     "postcss-cssnext": "^3.0.2",
     "postcss-easy-import": "^3.0.0",
-    "pug": "^2.0.0-rc.4"
+    "pug": "^2.0.0-rc.4",
+    "rollup-plugin-buble": "^0.18.0",
+    "rollup-stream": "^1.24.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "prettier": {
     "printWidth": 80,
