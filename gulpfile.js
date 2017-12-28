@@ -70,7 +70,13 @@ gulp.task('js', () => {
   return rollup({
     input: './js/index.js',
     format: 'es',
-    plugins: [buble()]
+    plugins: [
+      buble({
+        transforms: {
+          dangerousForOf: true
+        }
+      })
+    ]
   })
     .on('error', function(e) {
       console.error(e.stack);

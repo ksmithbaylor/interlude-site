@@ -2,13 +2,17 @@ import './nanoajax.min.js';
 
 console.log('js loaded');
 
-// (function(window) {
-// document.querySelectorAll('nav li a').forEach(function(link) {
-// link.addEventListener('click', function(event) {
-// // event.preventDefault();
-// onClickNav(this.parentNode.classList[0]);
-// });
-// });
+const links = document.querySelectorAll('nav li a');
 
-// function onClickNav(target) {}
-// })(window);
+for (let link of links) {
+  link.addEventListener('click', onClick);
+}
+
+function onClick(event) {
+  event.preventDefault();
+  onNavigateTo(this.parentNode.classList[0]);
+}
+
+function onNavigateTo(target) {
+  console.log('clicked', target);
+}
