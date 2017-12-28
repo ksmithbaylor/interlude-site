@@ -179,7 +179,7 @@ gulp.task('default', ['clean', 'all', 'browser-sync'], () => {
   gulp.watch('html/**/*', ['html', 'html-justmain']);
   gulp.watch('images/**/*', ['images']);
   gulp.watch('favicon/**/*', ['favicon']);
-  gulp.watch('css/**/*', ['css']);
-  gulp.watch('js/**/*', ['js']);
+  gulp.watch('css/**/*', ['css', 'html']);
+  gulp.watch('js/**/*', ['js', 'html']);
   gulp.watch('fonts.list', ['fonts']);
 });
