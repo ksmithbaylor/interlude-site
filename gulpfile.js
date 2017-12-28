@@ -19,7 +19,7 @@ const easyImport = require('postcss-easy-import');
 ////////////////////////////////////////////////////////////////////////////////
 // Build tasks
 
-gulp.task('html', ['css'], () => {
+gulp.task('html', ['css', 'js'], () => {
   return gulp
     .src('html/*.pug')
     .pipe(
