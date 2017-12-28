@@ -14,7 +14,7 @@ window.addEventListener('popstate', () => {
 
 function onClick(event) {
   event.preventDefault();
-  onNavigateTo(this.parentNode.classList[0]);
+  onNavigateTo(targetNameFromLink(this));
 }
 
 function onNavigateTo(target, skipUrlUpdate) {
@@ -73,4 +73,8 @@ function htmlNameFor(target) {
 
 function targetNameFor(htmlName) {
   return { index: 'about' }[htmlName] || htmlName;
+}
+
+function targetNameFromLink(link) {
+  return link.parentNode.classList[0];
 }
