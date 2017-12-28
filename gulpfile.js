@@ -9,12 +9,15 @@ const commonjs = require('rollup-plugin-commonjs');
 const uglify = require('rollup-plugin-uglify');
 const rename = require('gulp-rename');
 const source = require('vinyl-source-stream');
+const concat = require('gulp-concat');
+const webFontsBase64 = require('gulp-google-fonts-base64-css');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 const _ = require('lodash');
 const postcss = require('gulp-postcss');
 const cssnext = require('postcss-cssnext');
 const cssnano = require('cssnano');
+const cssmin = require('gulp-minify-css');
 const easyImport = require('postcss-easy-import');
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -61,7 +64,7 @@ gulp.task('favicon', () => {
   return gulp.src('favicon/**/*').pipe(gulp.dest('public'));
 });
 
-gulp.task('css', () => {
+gulp.task('css', ['fonts'], () => {
   return gulp
     .src('css/index.css')
     .pipe(
@@ -79,6 +82,15 @@ gulp.task('css', () => {
         ])
       )
     )
+    .pipe(gulp.dest('public'));
+});
+
+gulp.task('fonts', () => {
+  return gulp
+    .src('fonts.list')
+    .pipe(webFontsBase64())
+    .pipe(concat('fonts.css'))
+    .pipe(cssmin())
     .pipe(gulp.dest('public'));
 });
 
@@ -121,6 +133,7 @@ gulp.task('all', [
   'images',
   'favicon',
   'css',
+  'fonts',
   'js'
 ]);
 
@@ -168,4 +181,5 @@ gulp.task('default', ['clean', 'all', 'browser-sync'], () => {
   gulp.watch('favicon/**/*', ['favicon']);
   gulp.watch('css/**/*', ['css']);
   gulp.watch('js/**/*', ['js']);
+  gulp.watch('fonts.list', ['fonts']);
 });

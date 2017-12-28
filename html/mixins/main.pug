@@ -31,7 +31,8 @@ mixin main(title, klass)
         title
           = title
           = " | Interlude Trio"
-        link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Raleway")
+        style
+          include ../../public/fonts.css
         style
           include ../../public/index.css
       body(class=klass)
