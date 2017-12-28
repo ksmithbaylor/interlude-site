@@ -6,6 +6,7 @@ const rollup = require('rollup-stream');
 const buble = require('rollup-plugin-buble');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const uglify = require('rollup-plugin-uglify');
 const rename = require('gulp-rename');
 const source = require('vinyl-source-stream');
 const browserSync = require('browser-sync').create();
@@ -94,7 +95,8 @@ gulp.task('js', () => {
         transforms: {
           dangerousForOf: true
         }
-      })
+      }),
+      uglify()
     ]
   })
     .on('error', function(e) {
