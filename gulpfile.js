@@ -33,7 +33,7 @@ gulp.task('html', ['css', 'js'], () => {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('html-justmain', () => {
+gulp.task('html-justmain', ['css', 'js'], () => {
   return gulp
     .src('html/*.pug')
     .pipe(
